@@ -28,12 +28,12 @@ class PlayerList extends React.Component {
           onChange={this.handleSearch}
         />
         <ul>
-          {this.props.todolist.map(
+          {/* {this.props.PlayerData.map(
             item =>
               item.task.includes(this.state.searchInput) && (
                 <PlayerData playerItem={PlayerData} />
               )
-          )}
+          )} */}
         </ul>
       </div>
     );

@@ -12,32 +12,31 @@ const App = () => {
   useEffect(() => {
     axios
       .get("http://localhost:5000/api/players")
-      .then(res => setPlayerData(res.data));
-    console.log("info", playerData).catch(err => console.log(err));
+      .then(response => setPlayerData(response.data));
   }, [playerData]);
 
   const handleSubmit = (event, newPlayer) => {
     event.preventDefault();
     let newPlayerData = {
-      task: newPlayer,
+      playerData: newPlayer,
       id: Date.now(),
       completed: false
     };
+    const updatedPlayerList = [...playerData, newPlayerData];
+    setPlayerData({
+      playerData: updatedPlayerList
+    });
+    localStorage.setItem("PlayerList", JSON.stringify(updatedPlayerList));
   };
-  const updatedPlayerList = [...playerData, newPlayerData];
-  setState({
-    playerData: updatedPlayerList
-  });
-  localStorage.setItem("PlayerList", JSON.stringify(updatedPlayerList));
-};
-toggleCompleted = id => {
-  const newPlayerById = playerData.map(playerData => {
-    return playerData.id === id
-      ? { ...playerData, completed: !playerData.completed }
-      : playerData;
-  });
-  setState({ playerData: newPlayerById });
-  localStorage.setItem("PlayerList", JSON.stringify(newPlayerById));
+  const toggleCompleted = id => {
+    const newPlayerById = playerData.map(playerData => {
+      return playerData.id === id
+        ? { ...playerData, completed: !playerData.completed }
+        : playerData;
+    });
+    setPlayerData({ playerData: newPlayerById });
+    localStorage.setItem("PlayerList", JSON.stringify(newPlayerById));
+  };
   return (
     <div className="App">
       <ToggleButton />
