@@ -9,10 +9,13 @@ class PlayerData extends React.Component {
     return (
       <div>
         <li
-          className={this.props.playerItem.completed ? "completed" : null}
-          onClick={() => this.props.toggleCompleted(this.props.playerItem.id)}
+          className={this.props.playerData.completed ? "completed" : null}
+          onClick={() => this.props.toggleCompleted(this.props.playerData.id)}
         >
-          {this.props.playerItem.task}
+          {this.props.playerData.name}
+          {this.props.playerData.country}
+          {this.props.playerData.searches}
+          {this.props.playerData.id}
         </li>
       </div>
     );

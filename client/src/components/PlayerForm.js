@@ -1,10 +1,10 @@
 import React from "react";
 
-class TodoForm extends React.Component {
+class PlayerForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      newTodo: ""
+      newPlayer: ""
     };
   }
 
@@ -33,10 +33,11 @@ class TodoForm extends React.Component {
             onChange={this.handleChanges}
           />
           <button type="submit">Add Player</button>
+          <button onClick={this.props.clearCompleted}>Clear</button>
         </form>
       </div>
     );
   }
 }
 
-export default TodoForm;
+export default PlayerForm;

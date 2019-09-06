@@ -14,9 +14,7 @@ const ToggleButton = () => {
         <button
           onClick={toggleMode}
           className={darkMode ? "toggle toggled" : "toggle"}
-        >
-          Toggle
-        </button>
+        />
       </div>
     </nav>
   );

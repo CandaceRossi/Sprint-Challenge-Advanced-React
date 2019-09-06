@@ -11,10 +11,10 @@ const App = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/players")
+      .get("http://localhost:5000/api/players/")
       .then(response => setPlayerData(response.data));
-  }, [playerData]);
-
+  }, []);
+  console.log("info", playerData);
   const handleSubmit = (event, newPlayer) => {
     event.preventDefault();
     let newPlayerData = {
@@ -37,10 +37,19 @@ const App = () => {
     setPlayerData({ playerData: newPlayerById });
     localStorage.setItem("PlayerList", JSON.stringify(newPlayerById));
   };
+  const clearCompleted = () => {
+    const completed = this.state.playerData.filter(playerData => {
+      return playerData.completed === false;
+    });
+    setPlayerData({
+      playerData: completed
+    });
+    localStorage.setItem("playerData", JSON.stringify(completed));
+  };
   return (
     <div className="App">
       <ToggleButton />
-      <PlayerForm handleSubmit={handleSubmit} />
+      <PlayerForm handleSubmit={handleSubmit} clearCompleted={clearCompleted} />
       <PlayerList playerData={playerData} toggleCompleted={toggleCompleted} />
     </div>
   );
