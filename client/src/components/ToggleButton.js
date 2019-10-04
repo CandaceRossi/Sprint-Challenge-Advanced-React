@@ -1,14 +1,14 @@
-import { useLocalStorage } from "../hooks/useLocalStorage";
+import useDarkMode from "../hooks/useDarkMode";
 import React from "react";
 
 const ToggleButton = () => {
-  const [darkMode, setDarkMode] = useLocalStorage(false);
+  const [darkMode, setDarkMode] = useDarkMode(false);
   const toggleMode = e => {
     e.preventDefault();
     setDarkMode(!darkMode);
   };
   return (
-    <nav>
+    <nav className="navbar">
       <h1> Toggle Dark Mode Here! </h1>
       <div className="dark-mode__toggle">
         <button
