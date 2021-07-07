@@ -1,13 +1,67 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+.dark-mode__toggle {
+    margin: 0 auto;
+    background: papayawhip;
+    border-radius: 50px;
+    border: 1px solid black;
+    height: 20px;
+    position: relative;
+    width: 40px;
+}
+
+.toggle {
+    background: #f68819;
+    border-radius: 50px;
+    height: 18px;
+    left: 0;
+    position: absolute;
+    transition: 0.2s;
+    width: 20px;
+}
+
+.toggled {
+    left: 18px;
+}
+
+.dark-mode {
+    color: #fff;
+    background-color: #313843;
+}
+
+.dark-mode .navbar {
+    background-color: #1F2022;
+    border: none;
+}
+
+.flex-cards {
+    width: 700px;
+    margin: 0 auto;
+}
+
+.flex-card {
+    width: 600px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.cards-style {
+    margin: 10px;
+    padding: 5px;
+    background: teal;
+    border: 2px solid black;
+    height: 200px;
+    width: 33.33%;
 }
